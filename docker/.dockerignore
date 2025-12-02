@@ -1,0 +1,15 @@
+.git
+__pycache__
+*.pyc
+venv/
+.venv/
+logs/
+downloads/
+*.log
+.env
+.env.*
+docker/
+*.md
+tests/
+.pytest_cache/
+.coverage

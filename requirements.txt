@@ -1,0 +1,15 @@
+# KeepItAllBot Dependencies (Pyrogram - 2GB uploads!)
+# Python 3.10+ required
+
+# Telegram MTProto API (2GB upload limit!)
+pyrogram==2.0.106
+tgcrypto==1.2.5
+
+# YouTube downloader
+yt-dlp>=2024.11.18
+
+# Environment variables
+python-dotenv==1.0.1
+
+# Async file operations
+aiofiles==24.1.0

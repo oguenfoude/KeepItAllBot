@@ -1,0 +1,31 @@
+# KeepItAllBot - Docker Compose for Contabo VPS
+# Pyrogram version - supports 2GB uploads!
+
+services:
+  bot:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: keepitallbot
+    restart: unless-stopped
+    env_file:
+      - ../.env
+    
+    # Production settings - NO LIMITS, FAST
+    environment:
+      - CONCURRENT_DOWNLOADS=5          # 5 parallel downloads
+      - MAX_VIDEO_RESOLUTION=1080        # Up to 1080p
+      - DOWNLOAD_TIMEOUT=1800            # 30 min timeout
+      - CLEANUP_AFTER_MINUTES=10         # Quick cleanup
+      - MAX_DOWNLOADS_PER_USER=50        # 50 per hour
+      - RATE_LIMIT_WINDOW_MINUTES=60
+    
+    volumes:
+      - ../downloads:/app/downloads
+      - ../logs:/app/logs
+    
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "3"
